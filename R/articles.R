@@ -10,13 +10,13 @@
 #' 
 #' @examples
 #' \dontrun{
-#'  world <- acc_world(popular = TRUE)
-#'  local <- acc_local(27.964157, -82.452606, pages = 2)
+#'  world <- acc_world_articles(popular = TRUE)
+#'  local <- acc_local_articles(27.964157, -82.452606, pages = 2)
 #' }
 #' 
 #' @name articles
 #' @export
-acc_local <- function(lat, lon, popular = FALSE, radius = 50, pages = 1) {
+acc_local_articles <- function(lat, lon, popular = FALSE, radius = 50, pages = 1) {
   assert_that(radius <= 300)
   popular <- tolower(popular)
   url <- .make_url(lon = lon, lat = lat, radius = radius, popular = popular, endpoint = "articles")
@@ -25,7 +25,7 @@ acc_local <- function(lat, lon, popular = FALSE, radius = 50, pages = 1) {
 
 #' @rdname articles
 #' @export
-acc_world <- function(q = NULL, popular = FALSE, pages = 1){
+acc_world_articles <- function(q = NULL, popular = FALSE, pages = 1){
   popular <- tolower(popular)
   url <- .make_url(keyword = q, popular = popular, endpoint = "articles")
   .call_api_articles(url, pages = pages)

@@ -26,7 +26,7 @@ BASE_PATH <- c("api", "v1")
 
   # initial call to get `next`
   content <- .call_it(url)
-  results <- .parse_content(content)
+  results <- .parse_articles(content)
 
   # paginate
   p = 1 
@@ -34,7 +34,29 @@ BASE_PATH <- c("api", "v1")
     p <- p + 1 
     cat(blue(symbol$pointer), "Crawling page", p, "\n")
     content <- .call_it(content$`next`)
-    page_results <- .parse_content(content)
+    page_results <- .parse_articles(content)
+    results <- bind_rows(results, page_results)
+    Sys.sleep(1) # rate limit of 60 / minute
+  }
+
+  return(results)
+}
+
+.call_api_sources <- function(url, pages = 1){
+
+  cat(blue(symbol$pointer), "Crawling page 1\n")
+
+  # initial call to get `next`
+  content <- .call_it(url)
+  results <- .parse_sources(content)
+
+  # paginate
+  p = 1 
+  while(p < pages && length(content$`next`)){
+    p <- p + 1 
+    cat(blue(symbol$pointer), "Crawling page", p, "\n")
+    content <- .call_it(content$`next`)
+    page_results <- .parse_sources(content)
     results <- bind_rows(results, page_results)
     Sys.sleep(1) # rate limit of 60 / minute
   }
@@ -48,7 +70,7 @@ BASE_PATH <- c("api", "v1")
   content(response)
 }
 
-.parse_content <- function(content){
+.parse_articles <- function(content){
   source <- content$results %>% 
     map("source") %>% 
     map_dfr(function(x){
@@ -68,4 +90,14 @@ BASE_PATH <- c("api", "v1")
     })
 
   dplyr::bind_cols(rez, source)
+}
+
+.parse_sources <- function(content){
+  content$results %>% 
+    map_dfr(function(x){
+      x$coords$type <- NULL
+      x <- flatten(x)
+      tibble::as_tibble(x)
+    }) %>% 
+    set_names(paste0("source_", names(.)))
 }

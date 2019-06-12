@@ -2,13 +2,13 @@
 % Please edit documentation in R/articles.R
 \name{articles}
 \alias{articles}
-\alias{acc_local}
-\alias{acc_world}
+\alias{acc_local_articles}
+\alias{acc_world_articles}
 \title{Articles}
 \usage{
-acc_local(lat, lon, popular = FALSE, radius = 50, pages = 1)
+acc_local_articles(lat, lon, popular = FALSE, radius = 50, pages = 1)
 
-acc_world(q = NULL, popular = FALSE, pages = 1)
+acc_world_articles(q = NULL, popular = FALSE, pages = 1)
 }
 \arguments{
 \item{lat, lon}{Coordinates to retrieve local news articles from.}
@@ -26,8 +26,8 @@ This endpoint retrieves latest or most popular local or world news articles arou
 }
 \examples{
 \dontrun{
- world <- acc_world(popular = TRUE)
- local <- acc_local(27.964157, -82.452606, pages = 2)
+ world <- acc_world_articles(popular = TRUE)
+ local <- acc_local_articles(27.964157, -82.452606, pages = 2)
 }
 
 }
