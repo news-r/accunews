@@ -29,8 +29,6 @@ Access local and world news from R with [AccuNews](https://www.accunewsapp.com).
 remotes::install_github("news-r/accunews")
 ```
 
-## Calls
-
 Articles:
 
 - `acc_local_articles`
