@@ -20,7 +20,7 @@ BASE_PATH <- c("api", "v1")
   build_url(url)
 }
 
-.call_api <- function(url, pages = 1){
+.call_api_articles <- function(url, pages = 1){
 
   cat(blue(symbol$pointer), "Crawling page 1\n")
 
