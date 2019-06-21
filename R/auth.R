@@ -30,12 +30,7 @@ accunews_auth <- function(email, password){
   url$path <- c(BASE_PATH, "auth")
   url <- build_url(url)
 
-  body  <- list(
-    email = email,
-    password = password
-  )
-
-  response <- POST(url, body = body, encode = "json", content_type_json())
+  response <- httr::POST(url, encode = "json", content_type_json(), body = list(email = email, password = password))
   stop_for_status(response)
   content <- content(response)
   accunews_key(content[["apiKey"]])

@@ -28,6 +28,17 @@ Sources:
 - `acc_local_sources`
 - `acc_world_sources`
 
+## Setup
+
+Create a free account at [accunews.com](https://www.accunewsapp.com/api/v1/docs/#authentication).
+
+```r
+accunews_key("xxXXxxXx")
+```
+
+Note that you can specify the `ACCUNEWS_API_KEY` key as an environment variable in your `.Renviron` for convenience.
+
+
 ## Example
 
 
