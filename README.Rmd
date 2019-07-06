@@ -56,7 +56,4 @@ library(accunews)
 
 # get articles local (to somewhere)
 acc_local_articles(27.964157, -82.452606, pages = 2)
-
-# get business news sources
-acc_world_sources(type = "business")
 ```

@@ -98,6 +98,5 @@ BASE_PATH <- c("api", "v1")
       x$coords$type <- NULL
       x <- flatten(x)
       tibble::as_tibble(x)
-    }) %>% 
-    set_names(paste0("source_", names(.)))
+    }) 
 }

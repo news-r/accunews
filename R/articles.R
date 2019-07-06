@@ -28,5 +28,5 @@ acc_local_articles <- function(lat, lon, popular = FALSE, radius = 50, pages = 1
 acc_world_articles <- function(q = NULL, popular = FALSE, pages = 1){
   popular <- tolower(popular)
   url <- .make_url(keyword = q, popular = popular, endpoint = "articles")
-  .call_api_articles(url, pages = pages)
+  .call_api_sources(url, pages = pages)
 }

@@ -1,0 +1,98 @@
+<!-- badges go here -->
+
+# accunews
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(htmltools)
+```
+
+```{r, echo=FALSE}
+div(
+  class = "row",
+  div(
+    class = "col-md-4",
+    img(
+      src = "logo.png",
+      class = "img-responsive responsive-img"
+    )
+  ),
+  div(
+    class = "col-md-8",
+    p(
+      "Package description goes here."
+    ),
+    p(
+      tags$a(
+        tags$i(class = "fa fa-rocket"),
+        class = "btn btn-primary",
+        href = "articles/something.html",
+        style = "margin-bottom: 5px;",
+        "First button"
+      ),
+      tags$a(
+        tags$i(class = "fa fa-paint-brush"),
+        class = "btn btn-default",
+        href = "articles/something.html",
+        style = "margin-bottom: 5px;",
+        "Second button"
+      )
+    )
+  )
+)
+```
+
+## Installation
+
+You can install accunews with `remotes` from Github, see [changes](news/index.html).
+
+```r
+# install.packages("remotes")
+remotes::install_github("news-r/accunews") # github
+```
+
+## Setup
+
+Get a free key from the [accunewsapp.com](https://www.accunewsapp.com/) website.
+
+```r
+accunews_key("xxXXxxXx")
+```
+
+Note that you can specify the `ACCUNEWS_API_KEY` key as an environment variable in your `.Renviron` for convenience.
+
+## Example
+
+```{r example}
+library(accunews)
+
+# get business news sources
+src <- acc_world_sources(type = "business", pages = 2)
+```
+
+Plot with [echarts4r](https://echarts4r.john-coene.com).
+
+```{r}
+library(echarts4r.suite)
+
+src %>% 
+  e_charts(lon) %>% 
+  em_map("USA") %>%
+  e_geo("USA") %>% 
+  e_scatter(
+    lat,
+    symbol_size = 10,
+    symbol = ea_icons("signals"),
+    legend = FALSE,
+    coord_system = "geo"
+  )  %>% 
+  e_color(
+    "#247BA0",
+    "#f9f7f1"
+  )
+```

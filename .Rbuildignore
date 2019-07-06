@@ -4,3 +4,4 @@
 ^appveyor\.yml$
 _pkgdown.yml
 docs
+^index\.Rmd$
