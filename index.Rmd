@@ -27,6 +27,22 @@ div(
     class = "col-md-8",
     p(
       "Access local and world news."
+    ),
+    p(
+      tags$a(
+        tags$i(class = "fa fa-github"),
+        class = "btn btn-primary",
+        href = "https://github.com/news-r/accunews",
+        style = "margin-bottom: 5px;",
+        "Repository"
+      ),
+      tags$a(
+        tags$i(class = "fa fa-code"),
+        class = "btn btn-default",
+        href = "reference/index.html",
+        style = "margin-bottom: 5px;",
+        "Reference"
+      )
     )
   )
 )
