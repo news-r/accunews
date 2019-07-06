@@ -1,17 +1,15 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-
-
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/news-r/accunews.svg?branch=master)](https://travis-ci.org/news-r/accunews)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/news-r/accunews?branch=master&svg=true)](https://ci.appveyor.com/project/news-r/accunews)
-<!-- badges: end -->
+[![Travis build status](https://travis-ci.org/news-r/accunews.svg?branch=master)](https://travis-ci.org/news-r/accunews) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/news-r/accunews?branch=master&svg=true)](https://ci.appveyor.com/project/news-r/accunews) <!-- badges: end -->
 
-# accunews
+accunews
+========
 
 Access local and world news from R with [AccuNews](https://www.accunewsapp.com).
 
-## Installation
+Installation
+------------
 
 ``` r
 # install.packages("remotes")
@@ -20,29 +18,29 @@ remotes::install_github("news-r/accunews")
 
 Articles:
 
-- `acc_local_articles`
-- `acc_world_articles`
+-   `acc_local_articles`
+-   `acc_world_articles`
 
 Sources:
 
-- `acc_local_sources`
-- `acc_world_sources`
+-   `acc_local_sources`
+-   `acc_world_sources`
 
-## Setup
+Setup
+-----
 
 Create a free account at [accunews.com](https://www.accunewsapp.com/api/v1/docs/#authentication).
 
-```r
+``` r
 accunews_key("xxXXxxXx")
 ```
 
 Note that you can specify the `ACCUNEWS_API_KEY` key as an environment variable in your `.Renviron` for convenience.
 
+Example
+-------
 
-## Example
-
-
-```r
+``` r
 library(accunews)
 
 # get articles local (to somewhere)

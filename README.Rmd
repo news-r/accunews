@@ -49,7 +49,6 @@ accunews_key("xxXXxxXx")
 
 Note that you can specify the `ACCUNEWS_API_KEY` key as an environment variable in your `.Renviron` for convenience.
 
-
 ## Example
 
 ```{r example}
