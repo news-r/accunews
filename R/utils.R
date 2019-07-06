@@ -65,7 +65,7 @@ BASE_PATH <- c("api", "v1")
 }
 
 .call_it <- function(url){
-  response <- GET(url)
+  response <- GET(url, config(ssl_verifypeer = FALSE))
   stop_for_status(response)
   content(response)
 }
