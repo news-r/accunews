@@ -92,7 +92,7 @@ src %>%
     coord_system = "geo"
   )  %>% 
   e_color(
-    "#247BA0",
+    "#FF1654",
     "#f9f7f1"
   )
 ```
