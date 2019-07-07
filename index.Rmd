@@ -1,4 +1,5 @@
 <!-- badges go here -->
+[![Travis build status](https://travis-ci.org/news-r/accunews.svg?branch=master)](https://travis-ci.org/news-r/accunews) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/news-r/accunews?branch=master&svg=true)](https://ci.appveyor.com/project/news-r/accunews) [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/JohnCoene)
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
@@ -67,7 +68,7 @@ accunews_key("xxXXxxXx")
 
 Note that you can specify the `ACCUNEWS_API_KEY` key as an environment variable in your `.Renviron` for convenience.
 
-## Example
+## Examples
 
 ```{r example}
 library(accunews)
@@ -98,4 +99,13 @@ src %>%
     "#247BA0",
     "#f9f7f1"
   )
+```
+
+You can also look for local news.
+
+```{r}
+library(accunews)
+
+# get articles local (to somewhere)
+acc_local_articles(27.964157, -82.452606, pages = 2)
 ```
