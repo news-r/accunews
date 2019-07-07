@@ -73,7 +73,7 @@ Note that you can specify the `ACCUNEWS_API_KEY` key as an environment variable 
 library(accunews)
 
 # get business news sources
-src <- acc_world_sources(type = "business", pages = 2)
+(src <- acc_world_sources(type = "business", pages = 2))
 ```
 
 Plot with [echarts4r](https://echarts4r.john-coene.com).
@@ -87,11 +87,13 @@ src %>%
   e_geo("USA") %>% 
   e_scatter(
     lat,
+    bind = name,
     symbol_size = 10,
     symbol = ea_icons("signals"),
     legend = FALSE,
     coord_system = "geo"
-  )  %>% 
+  ) %>%
+  e_tooltip() %>%  
   e_color(
     "#247BA0",
     "#f9f7f1"
