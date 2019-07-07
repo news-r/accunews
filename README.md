@@ -16,4 +16,4 @@ Installation
 remotes::install_github("news-r/accunews")
 ```
 
-You will find examples on the [website](htts://accunews.news-r.org).
+You will find examples on the [website](https://accunews.news-r.org).
