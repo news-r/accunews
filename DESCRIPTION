@@ -5,8 +5,7 @@ Authors@R:
     c(person(given = "John",
            family = "Coene",
            role = c("aut", "cre"),
-           email = "jcoenep@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID")),
+           email = "jcoenep@gmail.com"),
       person(family = "news-r", role = "cph"))
 Description: Access 'Accunews' articles.
 License: MIT + file LICENSE
